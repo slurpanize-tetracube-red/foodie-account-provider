@@ -1,6 +1,6 @@
-package tetracubered.slurpanize.identityProvider.account
+package tetracubered.slurpanize.identityProviderApi.account
 
-import tetracubered.slurpanize.identityProvider.account.payloads.CreateSuperAdminRequest
+import tetracubered.slurpanize.identityProviderApi.account.payloads.CreateSuperAdminRequest
 import javax.validation.Valid
 import javax.ws.rs.POST
 import javax.ws.rs.Path

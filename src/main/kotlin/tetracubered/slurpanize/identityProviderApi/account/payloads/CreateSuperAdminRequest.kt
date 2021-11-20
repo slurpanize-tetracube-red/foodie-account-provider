@@ -1,4 +1,4 @@
-package tetracubered.slurpanize.identityProvider.account.payloads
+package tetracubered.slurpanize.identityProviderApi.account.payloads
 
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
