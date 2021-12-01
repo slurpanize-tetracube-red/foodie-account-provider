@@ -1,5 +1,7 @@
 package red.tetracube.slurpanize.foodieAccountProvider.data.entities;
 
+import red.tetracube.slurpanize.foodieAccountProvider.enumerations.Roles;
+
 import javax.persistence.*;
 import java.util.Collections;
 import java.util.List;
@@ -12,14 +14,18 @@ public class Role {
     @Id
     private UUID id;
 
+    @Enumerated(value = EnumType.STRING)
     @Column(name = "name", nullable = false, unique = true)
-    private String name;
+    private Roles name;
 
     @Column(name = "description", nullable = false)
     private String description;
 
     @OneToMany(targetEntity = RoleCapability.class, fetch = FetchType.LAZY, mappedBy = "role")
     private List<RoleCapability> roleCapabilities = Collections.emptyList();
+
+    @OneToMany(targetEntity = Account.class, fetch = FetchType.LAZY, mappedBy = "role")
+    private List<Account> accounts = Collections.emptyList();
 
     public UUID getId() {
         return id;
@@ -29,11 +35,11 @@ public class Role {
         this.id = id;
     }
 
-    public String getName() {
+    public Roles getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Roles name) {
         this.name = name;
     }
 
@@ -51,6 +57,14 @@ public class Role {
 
     public void setRoleCapabilities(List<RoleCapability> roleCapabilities) {
         this.roleCapabilities = roleCapabilities;
+    }
+
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
 }

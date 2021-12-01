@@ -28,4 +28,15 @@ public class AccountRepository {
                 .call(ignored -> this.rxSession.flush());
     }
 
+    public Uni<Account> saveAccount(Account account) {
+        return this.rxSession.persist(account)
+                .call(ignored -> this.rxSession.flush())
+                .map(ignored -> account);
+    }
+
+    public Uni<Account> updateAccount(Account account) {
+        return this.rxSession.merge(account)
+                .call(ignored -> this.rxSession.flush());
+    }
+
 }

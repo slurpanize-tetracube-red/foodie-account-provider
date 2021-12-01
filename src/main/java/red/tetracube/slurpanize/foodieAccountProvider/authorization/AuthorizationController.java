@@ -55,10 +55,10 @@ public class AuthorizationController {
             }
     )
     @POST
-    @Path("/login")
+    @Path("/sign-in")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Uni<Response> foodieLogin(@Valid @RequestBody FoodieLoginRequest request) {
+    public Uni<Response> foodieSignIn(@Valid @RequestBody FoodieLoginRequest request) {
         var loginResultUni = this.authorizationServices.tryFoodieAccountLogin(request.username, request.password);
         var response = loginResultUni
                 .map(loginResult -> {
