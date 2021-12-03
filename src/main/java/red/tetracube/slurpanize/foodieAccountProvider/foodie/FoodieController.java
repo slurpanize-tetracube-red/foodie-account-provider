@@ -32,7 +32,7 @@ public class FoodieController {
 
     @Operation(
             description = "Foodie account creation",
-            summary = "Endpiont to create account"
+            summary = "Endpoint to create account"
     )
     @APIResponses(
             value = {
